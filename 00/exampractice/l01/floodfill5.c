@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heighttree6.c                                      :+:      :+:    :+:   */
+/*   floodfill5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 16:11:46 by yinzhang          #+#    #+#             */
-/*   Updated: 2019/12/04 12:32:44 by yinzhang         ###   ########.fr       */
+/*   Created: 2019/12/04 12:27:11 by yinzhang          #+#    #+#             */
+/*   Updated: 2019/12/04 12:30:24 by yinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int height_tree(struct s_node *root)
+  typedef struct  s_point
+  {
+    int           x;
+    int           y;
+  }               t_point;
+
+void  flood_fill(char **tab, t_point size, t_point begin)
 {
-	int height, current = 0;
-	if(!root)
-		return(-1);
-	for(int i = 0; root->node[i]; i++;)
-	{
-		current = height_tree(root->node[i]) +1;
-		if(current > height)
-			height = current;
-	}
-	return (height);
+	char c;
+
+	c = tab[begin.y][begin.x];
+	if(begin.x >= size. x || begin.y >= size.y || begin.x < 0 || begin.y < 0 || tab[begin.y][begin.x] != c)
+		return ;
+	floodfill
 }

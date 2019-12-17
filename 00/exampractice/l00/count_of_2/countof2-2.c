@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heighttree6.c                                      :+:      :+:    :+:   */
+/*   countof2-2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 16:11:46 by yinzhang          #+#    #+#             */
-/*   Updated: 2019/12/04 12:32:44 by yinzhang         ###   ########.fr       */
+/*   Created: 2019/12/04 12:39:26 by yinzhang          #+#    #+#             */
+/*   Updated: 2019/12/04 12:43:09 by yinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int height_tree(struct s_node *root)
+void gocount(int n, int *count)
 {
-	int height, current = 0;
-	if(!root)
-		return(-1);
-	for(int i = 0; root->node[i]; i++;)
+	if(n >= 10)
 	{
-		current = height_tree(root->node[i]) +1;
-		if(current > height)
-			height = current;
+		gocount(n/10, count);
+		gocount(n%2, count);
 	}
-	return (height);
+	if(n == 2)
+		*count++;
+}
+
+int count_of_2(int n)
+{
+	int count = 0;
+	for(int i = 0; i <= n; i++)
+	{
+		gocount(i, &count);
+	}
+	return(count);
 }

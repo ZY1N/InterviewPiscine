@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heighttree6.c                                      :+:      :+:    :+:   */
+/*   count_of_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 16:11:46 by yinzhang          #+#    #+#             */
-/*   Updated: 2019/12/04 12:32:44 by yinzhang         ###   ########.fr       */
+/*   Created: 2019/12/04 12:20:47 by yinzhang          #+#    #+#             */
+/*   Updated: 2019/12/04 12:25:16 by yinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int height_tree(struct s_node *root)
+int findit(int n)
 {
-	int height, current = 0;
-	if(!root)
-		return(-1);
-	for(int i = 0; root->node[i]; i++;)
-	{
-		current = height_tree(root->node[i]) +1;
-		if(current > height)
-			height = current;
-	}
-	return (height);
+	if(n >= 10)
+		countnum(n/10, count);
+		countnum(n%10 10);
+		if(n == 2)
+			count += 1;
+
+}
+
+int count_of_2(int n)
+{
+	int count = 0;
+
+	for(int i = 0; i <= n; i++)
+		count += findit(n);
+	return(count);
 }
